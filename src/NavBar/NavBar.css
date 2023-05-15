@@ -4,8 +4,9 @@
     align-items: center;
     gap: 40px;
     background-color: #fff;
-    position: absolute;
     bottom: 48px;
+    font-size: 20px;
+    font-weight: bold;
 
 }
 
@@ -21,10 +22,15 @@
 }
 
 .container {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
 }
 
 .centrao {
-    margin-left: 280px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
 }

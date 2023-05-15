@@ -8,6 +8,7 @@
 .colorBackground{
     min-height: 100vh;
     background: linear-gradient(to right, rgb(170, 231, 241), rgb(239, 187, 230));
+    padding: 20px;
 }
 
 .forButton {

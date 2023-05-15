@@ -8,7 +8,7 @@ const Cover = () => {
   const [getPokemons, setGetPokemons] = useState(null)
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
-  const [tester, setTest] = useState(50)
+  const [tester, setTest] = useState(51)
   const [checkNext, setCheckNext] = useState(0)
 
   const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon/?&limit=${tester}`)
@@ -25,16 +25,14 @@ const Cover = () => {
     }
     getMore()
   }, [url])
-
-  // const nada = []
-  // const aki = nada.push(getPokemons && getPokemons)
-  // checkNext === 3 && aki.slice(1, 1)
+ 
+  getPokemons && checkNext === 2 && getPokemons.pop()
 
   return (
     <div>
-      <div className='background'>
-
-        {getPokemons && getPokemons.map((item, index) => <FirstImage
+     <div className='background'>
+        {getPokemons && getPokemons.map((item, index) => 
+        <FirstImage
           key={index}
           data={item}
         />)}

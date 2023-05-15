@@ -1,36 +1,55 @@
-
 .forCuriosity {
-background-color: #fff;
-border-radius: 15px;
-padding: 30px;
-font-size: 30px;
-width: 60%;
-margin-left: 320px;
-align-items: center;
-
-}
-
-.pokeBox {
-margin-top: 300px;
-margin-bottom: 50px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  font-size: 30px;
+  width: 60%;
+  align-items: center;
 }
 
 .above {
-display: flex;
-justify-content: center;
-align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 47%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
 }
 
 @keyframes fadeIn {
-from {
-opacity: 0;
-}
+  from {
+    opacity: 0;
+  }
 
-to {
-opacity: 1;
-}
+  to {
+    opacity: 1;
+  }
 }
 
 .fade-in {
-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.curiosidadesCentro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forButtonCuriosity {
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(228, 9, 9);
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+
+.forButtonCuriosity:hover {
+    background-color: rgb(185, 7, 43);
 }
