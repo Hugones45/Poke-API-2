@@ -80,70 +80,75 @@ const PokemonDetails = () => {
   ])
 
   const [pokemon, setPokemon] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const { id } = useParams()
   const url = 'https://pokeapi.co/api/v2/pokemon/' + id
 
   useEffect(() => {
+    setLoading(true)
     const getPokemons = async () => {
       const res = await fetch(url)
       const json = await res.json()
 
       setPokemon(json)
+      setLoading(false)
     }
     getPokemons()
   }, [])
-
+  console.log(loading)
   return (
     <div className="center">
+    
+        <p className="pokeName">{id} - {pokemon && `${pokemon.name[0].toUpperCase()}${pokemon.name.slice(1,)}`}</p>
+        <div style={{ marginTop: '-120px' }}>
+          <div className="status">
+    
+            <div >
+              <div className="colunaDeHabildiades">
+                <p className="forStatusTitle">STATUS</p>
+                <p></p>
+                {pokemon && pokemon.stats.map((item, index) =>
+                  <div className="filhos" key={index}>{item.stat.name} <hr /> {item.base_stat}</div>)}
+              </div>
+            </div>
+  
+         <div style={{ position: 'relative', margin: '0px' }}>
+              <div className="backgroundWall" style={{ margin: '0px' }} ></div>
+             
+              {pokemon && <img style={{
+                position: 'relative',
+                zIndex: '3',
+                marginLeft: '-45px',
+                marginTop: '100px'
+              }} src={pokemon.sprites.other.home.front_default} alt={pokemon && pokemon.name} />}
+            </div>
 
-      <p className="pokeName">{id} - {pokemon && `${pokemon.name[0].toUpperCase()}${pokemon.name.slice(1,)}`}</p>
-      <div style={{ marginTop: '-120px' }}>
-        <div className="status">
+            <div >
+              <p className="forTiposTitle">TIPO</p>
 
-          <div >
-            <div className="colunaDeHabildiades">
-              <p className="forStatusTitle">STATUS</p>
-              <p></p>
-              {pokemon && pokemon.stats.map((item, index) =>
-                <div className="filhos" key={index}>{item.stat.name} <hr /> {item.base_stat}</div>)}
+              {pokemon && pokemon.types.map((item, index) => {
+
+                const color = colorTypes.find((itens) =>
+                  itens.name === item.type.name
+                )['colorType']
+                return (
+                  <div className="typesForDetails" key={index}>
+                    <p
+                      style={{ backgroundColor: color }}
+                    >{item.type.name}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
-          <div style={{ position: 'relative', margin: '0px' }}>
-            <div className="backgroundWall" style={{ margin: '0px' }} ></div>
-            {pokemon && <img style={{
-              position: 'relative',
-              zIndex: '3',
-              marginLeft: '-45px',
-              marginTop: '100px'
-            }} src={pokemon.sprites.other.home.front_default} alt={pokemon && pokemon.name} />}
-          </div>
-
-          <div >
-            <p className="forTiposTitle">TIPO</p>
-
-            {pokemon && pokemon.types.map((item, index) => {
-
-              const color = colorTypes.find((itens) =>
-                itens.name === item.type.name
-              )['colorType']
-              return (
-                <div className="typesForDetails" key={index}>
-                  <p
-                    style={{ backgroundColor: color }}
-                  >{item.type.name}</p>
-                </div>
-              )
-            })}
+          <div className="forLastHabilidades">HABILIDADES
+            {pokemon && pokemon.abilities.map((item, index) =>
+              <p key={index}>{`${item.ability.name[0].toUpperCase()}${item.ability.name.slice(1,)}`}</p>)}
           </div>
         </div>
-
-        <div className="forLastHabilidades">HABILIDADES
-          {pokemon && pokemon.abilities.map((item, index) =>
-            <p key={index}>{`${item.ability.name[0].toUpperCase()}${item.ability.name.slice(1,)}`}</p>)}
-        </div>
-      </div>
+     
     </div>
   )
 }

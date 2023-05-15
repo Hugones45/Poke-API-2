@@ -108,14 +108,13 @@ const FirstImage = ({ data }) => {
 
     return (
         <div className="separeteCards">
-            <PokemonsInitialCard
+         <PokemonsInitialCard
                 types={pokeImage?.types}
                 data={data.url}
                 numberPokemon={pokeImage && pokeImage.id}
                 namePokemon={pokeImage && `${pokeImage.name[0].toUpperCase()}${pokeImage.name.slice(1,)}`}
-
                 image={<img className="imagetype" src={pokeImage && vintImage} alt={pokeImage && pokeImage.name} />}
-
+           
                 pokemonTypes={pokeImage && pokeImage.types.map((item, index) => {
                     const color = colorTypes.find((cor) =>
                         cor.name === item.type?.name)["colorType"]

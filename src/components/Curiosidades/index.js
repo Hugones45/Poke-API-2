@@ -116,20 +116,19 @@ const Curiosidades = () => {
     }
 
     return (
-        <div style={{
+        
+        <div className="curiosidadesCentro " style={{
             backgroundImage: `url(${pokeScary})`,
             backgroundPosition: "center",
-            backgroundSize: 'contain',
             backgroundSize: '100% 100%',
             height: '100vh',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
         }}>
 
             <div className="above">
                 <div className="pokeBox">
-                    <button
-
-                        onClick={generateCuriosity}>Curiosidade</button>
+                    <button className="forButtonCuriosity"
+                        onClick={generateCuriosity}>Curiosidades</button>
                 </div>
             </div>
 

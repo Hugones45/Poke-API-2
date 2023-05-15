@@ -1,5 +1,6 @@
 import "./PokemoInitialCard.css"
 import { useState, useEffect } from "react"
+import ReactLoading from 'react-loading'
 
 const PokemonsInitialCard = ({
     types,
@@ -14,6 +15,7 @@ const PokemonsInitialCard = ({
 
     const [pokeImage, setPokeImage] = useState(null)
     const [vintImage, setVintImage] = useState()
+    const [loading, setLoading] = useState(false)
 
     const [colorTypes, setColorTypes] = useState([
         {
@@ -91,11 +93,13 @@ const PokemonsInitialCard = ({
     ])
 
     const dataPokemons = async () => {
+        setLoading(true)
         const res = await fetch(data)
         const json = await res.json()
 
         setPokeImage(json)
         setVintImage(json?.sprites.versions["generation-v"]["black-white"].animated.front_default)
+   setLoading(false)
     }
     useEffect(() => {
         dataPokemons()
@@ -111,8 +115,8 @@ const PokemonsInitialCard = ({
             <div className="itens">
                 <div>
                     <h2>{numberPokemon} - {namePokemon}</h2>
-
-                    <p className="whiteBack">{image}</p>
+            {loading && <p>Carregando...</p>}
+            {!loading && <p className="whiteBack">{image}</p>}
 
                     <div className="pokemonTypes">{pokemonTypes}</div>
 
