@@ -1,0 +1,30 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 48px;
+
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.theLinks {
+    margin-left: 40px;
+}
+
+.container {
+    position: relative;
+}
+
+.centrao {
+    margin-left: 280px;
+
+}

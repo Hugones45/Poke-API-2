@@ -1,0 +1,53 @@
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.colorBackground{
+    min-height: 100vh;
+    background: linear-gradient(to right, rgb(170, 231, 241), rgb(239, 187, 230));
+}
+
+.forButton {
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(0, 102, 255);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.forButton:hover {
+    background-color: #9249e6;
+}
+
+.forDisable {
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    color: #000;
+}
+
+.inputAndButton {
+text-align: center;
+}
+
+.forInputOnly {
+    background: #F7F7F7;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    flex: 1;
+    padding: 12px 34px;
+    margin: 40px;
+    border: none;
+    outline: none;
+}
+
+
+
+
