@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import FirstImage from '../FirtsImage';
 import './Cover.css'
@@ -25,17 +24,17 @@ const Cover = () => {
     }
     getMore()
   }, [url])
- 
+
   getPokemons && checkNext === 2 && getPokemons.pop()
 
   return (
     <div>
-     <div className='background'>
-        {getPokemons && getPokemons.map((item, index) => 
-        <FirstImage
-          key={index}
-          data={item}
-        />)}
+      <div className='background'>
+        {getPokemons && getPokemons.map((item, index) =>
+          <FirstImage
+            key={index}
+            data={item}
+          />)}
       </div>
 
       <div className='forPreviousAndNext'>
